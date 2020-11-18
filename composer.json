@@ -1,0 +1,24 @@
+{
+  "name": "gambare-web/contact-bundle",
+  "description": "This is a contact bundle for Symfony 5",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kaizoku",
+      "email": "gambare.web@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1.3",
+    "easycorp/easyadmin-bundle": "^3.1",
+    "stof/doctrine-extensions-bundle": "^1.5",
+    "vich/uploader-bundle": "^1.10",
+    "symfony/mailer": "^5.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gambare\\ContactBundle\\": "src/"
+    }
+  }
+}

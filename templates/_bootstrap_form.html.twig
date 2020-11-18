@@ -1,0 +1,59 @@
+{{ form_start(contact_form) }}
+
+{% if contact_form.name is defined %}
+    <div class="md-form">
+        <i class="fa fa-user prefix grey-text"></i>
+        {{ form_widget(contact_form.name, { 'attr' : {'class' : 'form-control'}}) }}
+        <label for="contact_form_name">Nom</label>
+    </div>
+{% endif %}
+
+{% if contact_form.email is defined %}
+    <div class="md-form">
+        <i class="fa fa-envelope prefix grey-text"></i>
+        {{ form_widget(contact_form.email, { 'attr' : {'class' : 'form-control'}}) }}
+        <label for="contact_form_email">Email</label>
+    </div>
+{% endif %}
+
+{% if contact_form.phone is defined %}
+    <div class="md-form">
+        <i class="fa fa-phone prefix grey-text"></i>
+        {{ form_widget(contact_form.phone, { 'attr' : {'class' : 'form-control'}}) }}
+        <label for="contact_form_tel">Téléphone</label>
+    </div>
+{% endif %}
+
+{% if contact_form.subject is defined %}
+    <div class="md-form">
+        <i class="fa fa-tag prefix grey-text"></i>
+        {{ form_widget(contact_form.subject, { 'attr' : {'class' : ''}}) }}
+        <label for="contact_form_title">Sujet</label>
+    </div>
+{% endif %}
+
+{% if contact_form.message is defined %}
+    <div class="form-group">
+        <label for="contact_form_message">Message</label>
+        {{ form_widget(contact_form.message, { 'attr' : {'class' : 'form-control', 'rows' : 7}}) }}
+    </div>
+{% endif %}
+
+{% if contact_form.file is defined %}
+
+    <div class="file-field">
+        <a class="btn-floating btn-advisory mt-0 float-left">
+            <i class="fa fa-paperclip" aria-hidden="true"></i>
+            <input type="file">
+        </a>
+        <div class="file-path-wrapper">
+            {{ form_widget(contact_form.file, { 'attr' : {'class' : 'file-path validate', 'placeholder' : 'Upload your file'}}) }}
+        </div>
+    </div>
+{% endif %}
+
+<div class="text-center">
+    <button class="btn btn-advisory btn-lg text-white">Envoyer</button>
+</div>
+{{ form_rest(contact_form) }}
+{{ form_end(contact_form) }}

@@ -1,0 +1,29 @@
+{% extends '@gambare-web/email/base_email.html.twig' %}
+
+{% block hello %}Hi,{% endblock %}
+
+{% block content %}
+    {% if name is defined %}
+        <p> Name : {{ name }}</p>
+    {% endif %}
+
+    {% if mail is defined %}
+        <p> Email : {{ mail }}</p>
+    {% endif %}
+
+    {% if phone is defined %}
+        <p> Phone : {{ phone }}</p>
+    {% endif %}
+
+    {% if subject is defined %}
+        <p> Sujet : {{ subject }}</p>
+    {% endif %}
+
+    {% if message is defined %}
+        <p> Message : {{ message }}</p>
+    {% endif %}
+{% endblock %}
+
+{% block goodbye %}
+    Goodbye.
+{% endblock %}
