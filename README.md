@@ -52,6 +52,13 @@ https://symfony.com/doc/current/mailer.html
 
 configure MAILER_DSN in your .env.local (or user symfony/google-mailer on dev)
 
+Add Twig namespace in config/packages/twig.yaml if you want to use the predefined twig template 
+
+```yaml
+twig:
+    paths:
+        '%kernel.project_dir%/vendor/gambare-web/contact-bundle/templates': gambare-web
+```
 
 Usage
 ============
@@ -65,6 +72,14 @@ $contact_form = $this->createForm(ContactMessageFormType::class, null, ['name_re
 ```
 
 Twig integration
+============
+
+A bootstrap form is provided. You can include it or use it as exemple.
+```twig
+{% include '@gambare-web/_bootstrap_form.html.twig' %}
+```
+
+Email integration
 ============
 
 One default html template is included. You can use it, extend it or use your own.
@@ -95,3 +110,15 @@ EasyAdminBundle v3 integration
 Create a ContactMessageCrudController class that extends ContactMessageDefaultCrudController
 
 ContactMessageDefaultCrudController is extending the AbstractCrudController from EasyAdmin
+
+Add an entry to your DashboardController
+
+```php
+    public function configureMenuItems(): iterable
+    {
+        // [...]
+        yield MenuItem::linkToCrud('Message', 'far fa-envelope', ContactMessage::class);
+    }
+
+```
+
